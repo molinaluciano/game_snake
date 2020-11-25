@@ -1,4 +1,5 @@
 module Model
+  # submodulo donde indicamos constantes de direccion
   module Direction
     UP = :up
     RIGHT = :right
@@ -18,15 +19,22 @@ module Model
   class Grid < Struct.new(:rows, :cols)
   end
 
+  # podemos observar que pasamos los atibutos que iniciamos abajo
   class State < Struct.new(:snake, :food, :grid, :curr_direction, :game_finished)
   end
 
+  # metodo de clase, retorna obj de clase state
   def self.initial_state
+    # hacemos referencia al modulo, 
     Model::State.new(
+      # pasamos los 3 objetos que necesitamos
         Model::Snake.new([
+          # inicio en la grilla de la serpiente
             Model::Coord.new(1,1),
+          # 
             Model::Coord.new(0,1)
         ]),
+        # comida
         Model::Food.new(4, 4),
         Model::Grid.new(8, 12),
         Direction::DOWN,

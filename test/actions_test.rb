@@ -6,6 +6,7 @@ require_relative "../src/model/state"
 class ActionsTest < Minitest::Test
   
   def setup
+    # iniciamos el estado
     @initial_state = Model::State.new(
       Model::Snake.new([
           Model::Coord.new(1,1),
